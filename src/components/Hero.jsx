@@ -18,7 +18,7 @@ const Hero = () => {
                         showCursor
                         cursorCharacter="_"
                         deletingSpeed={50}
-                        variableSpeedEnabled={false}
+                        variableSpeed={false}
                         cursorBlinkDuration={0.5}
                     />
                 </h2>
