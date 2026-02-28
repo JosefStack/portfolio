@@ -1,0 +1,390 @@
+/* GitHubStats.css */
+.stats-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--ide-border);
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--text-secondary);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.stat-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(1, 22, 39, 0.8);
+    border: 1px solid var(--ide-border);
+}
+
+.stat-icon-wrapper.blue {
+    color: var(--syntax-blue);
+}
+
+.stat-icon-wrapper.orange {
+    color: var(--accent-orange);
+}
+
+.stat-icon-wrapper.mint {
+    color: var(--syntax-mint);
+}
+
+.stat-icon-wrapper.coral {
+    color: var(--syntax-coral);
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    color: var(--text-primary);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.stats-loading,
+.stats-error {
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* Contribution Section */
+.contribution-section {
+    margin-top: 60px;
+    animation: fadeIn 1s ease forwards;
+}
+
+.sub-title {
+    color: var(--text-secondary);
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-family: 'Fira Code', monospace;
+}
+
+.contribution-heat-map {
+    background: var(--card-bg);
+    border: 1px solid var(--ide-border);
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.grid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.total-stats {
+    display: flex;
+    flex-direction: column;
+}
+
+.total-count {
+    color: var(--text-primary);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.total-year {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.year-selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.year-selector select {
+    background: var(--ide-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--ide-border);
+    padding: 8px 35px 8px 15px;
+    border-radius: 6px;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    cursor: pointer;
+    appearance: none;
+    transition: all 0.3s ease;
+}
+
+.year-selector select:hover {
+    border-color: var(--syntax-blue);
+}
+
+.select-icon {
+    position: absolute;
+    right: 12px;
+    color: var(--text-secondary);
+    pointer-events: none;
+}
+
+/* Mobile Scroll Wrapper */
+.scroll-wrapper {
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 15px;
+    /* space for scrollbar */
+}
+
+/* Custom Scrollbar for IDE feel */
+.scroll-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.scroll-wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.scroll-wrapper::-webkit-scrollbar-thumb {
+    background: var(--ide-border);
+    border-radius: 3px;
+}
+
+.month-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-left: 45px;
+    min-width: 800px;
+    /* match the grid width roughly */
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-family: 'Fira Code', monospace;
+}
+
+.grid-body {
+    display: flex;
+    gap: 12px;
+    min-width: 800px;
+}
+
+.day-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: var(--text-secondary);
+    font-size: 10px;
+    height: 98px;
+    padding-bottom: 2px;
+    width: 30px;
+}
+
+.small-day {
+    line-height: 1;
+}
+
+.squares-grid {
+    display: grid;
+    grid-template-columns: repeat(53, 12px);
+    grid-template-rows: repeat(7, 12px);
+    grid-auto-flow: column;
+    gap: 3px;
+}
+
+.square {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    transition: transform 0.1s ease;
+}
+
+.square:not(.placeholder):hover {
+    transform: scale(1.2);
+    z-index: 10;
+}
+
+.square.placeholder {
+    visibility: hidden;
+}
+
+/* GitHub Accurate Colors - Dark Mode */
+.level-0 {
+    background: #161b22;
+}
+
+.level-1 {
+    background: #0e4429;
+}
+
+.level-2 {
+    background: #006d32;
+}
+
+.level-3 {
+    background: #26a641;
+}
+
+.level-4 {
+    background: #39d353;
+}
+
+.grid-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.contributions-loading {
+    padding: 60px;
+    text-align: center;
+    color: var(--syntax-mint);
+    font-style: italic;
+    background: var(--card-bg);
+    border: 1px solid var(--ide-border);
+    border-radius: 12px;
+}
+
+.no-data-msg {
+    grid-column: span 53;
+    text-align: center;
+    padding: 30px;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Activity Section */
+.activity-section {
+    margin-top: 50px;
+}
+
+.events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.event-item {
+    background: rgba(1, 22, 39, 0.4);
+    border-left: 3px solid var(--syntax-mint);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 0 8px 8px 0;
+    transition: background 0.3s ease;
+}
+
+.event-item:hover {
+    background: rgba(1, 22, 39, 0.6);
+}
+
+.event-icon {
+    color: var(--syntax-blue);
+    font-size: 20px;
+}
+
+.event-details {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.event-type {
+    color: var(--syntax-mint);
+    font-weight: 600;
+}
+
+.event-repo {
+    color: var(--text-primary);
+}
+
+.event-date {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.github-profile-link {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 1024px) {
+    .stats-container {
+        padding: 0 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 20px 15px;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    .contribution-heat-map {
+        padding: 15px;
+    }
+
+    .grid-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .event-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

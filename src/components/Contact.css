@@ -1,0 +1,134 @@
+/* Contact.css */
+.contact-container {
+    width: 100%;
+    padding: 0 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+.contact-form {
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: slideUpFade 0.8s ease forwards;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: var(--ide-bg);
+    border: 1px solid var(--ide-border);
+    color: var(--text-primary);
+    font-family: 'Fira Code', monospace;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--syntax-blue);
+    box-shadow: 0 0 10px rgba(77, 91, 206, 0.2);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--ide-border);
+}
+
+.submit-btn {
+    background-color: var(--ide-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--ide-border);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-dark);
+}
+
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.contact-json-preview {
+    flex: 1;
+    background-color: transparent;
+    padding: 20px;
+    font-size: 16px;
+    line-height: 1.8;
+    border-left: 1px solid var(--ide-border);
+    animation: slideUpFade 0.8s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.json-line {
+    color: var(--text-primary);
+}
+
+.json-line.indent {
+    padding-left: 30px;
+}
+
+.syntax-blue {
+    color: var(--syntax-blue);
+}
+
+.json-status {
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+    }
+
+    .contact-json-preview {
+        border-left: none;
+        border-top: 1px solid var(--ide-border);
+        padding-left: 0;
+        margin-top: 20px;
+        padding-top: 20px;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 14px;
+    }
+}

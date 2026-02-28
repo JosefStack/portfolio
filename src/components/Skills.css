@@ -1,0 +1,104 @@
+/* Skills.css */
+.skills-container {
+    width: 100%;
+    padding: 0 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.skill-card {
+    background: var(--card-bg);
+    border: 1px solid var(--ide-border);
+    padding: 30px 20px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    border-color: var(--text-secondary);
+}
+
+.skill-icon-container {
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-icon-container {
+    transform: scale(1.1);
+}
+
+.skill-info {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-primary);
+    position: relative;
+    z-index: 2;
+}
+
+.skill-backdrop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.skill-card:hover .skill-backdrop {
+    opacity: 0.15;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+    }
+
+    .skill-card {
+        padding: 20px 10px;
+    }
+
+    .skill-info {
+        font-size: 14px;
+    }
+
+    .skill-backdrop {
+        width: 80px;
+        height: 80px;
+    }
+}
