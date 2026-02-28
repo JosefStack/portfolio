@@ -149,7 +149,6 @@ float displace(vec2 look)
 }
 
 vec3 getColor(vec2 p){
-    
     float bar = step(mod(p.y + time * 20.0, 1.0), 0.2) * 0.4 + 1.0;
     bar *= uScanlineIntensity;
     
@@ -163,12 +162,8 @@ vec3 getColor(vec2 p){
 
     float middle = digit(p);
     
-    const float off = 0.002;
-    float sum = digit(p + vec2(-off, -off)) + digit(p + vec2(0.0, -off)) + digit(p + vec2(off, -off)) +
-                digit(p + vec2(-off, 0.0)) + digit(p + vec2(0.0, 0.0)) + digit(p + vec2(off, 0.0)) +
-                digit(p + vec2(-off, off)) + digit(p + vec2(0.0, off)) + digit(p + vec2(off, off));
-    
-    vec3 baseColor = vec3(0.9) * middle + sum * 0.1 * vec3(1.0) * bar;
+    // Optimized: Removed expensive 9-tap blur for performance
+    vec3 baseColor = vec3(0.9) * middle * vec3(1.0) * bar;
     return baseColor;
 }
 
@@ -325,6 +320,7 @@ export default function FaultyTerminal({
         resize();
 
         const update = t => {
+            if (!containerRef.current) return;
             rafRef.current = requestAnimationFrame(update);
 
             if (pageLoadAnimation && loadAnimationStartRef.current === 0) {
@@ -360,13 +356,25 @@ export default function FaultyTerminal({
 
             renderer.render({ scene: mesh });
         };
-        rafRef.current = requestAnimationFrame(update);
+
+        // Performance Optimization: Only update when visible
+        const intersectionObserver = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                if (!rafRef.current) rafRef.current = requestAnimationFrame(update);
+            } else {
+                cancelAnimationFrame(rafRef.current);
+                rafRef.current = 0;
+            }
+        }, { threshold: 0.1 });
+
+        intersectionObserver.observe(ctn);
         ctn.appendChild(gl.canvas);
 
         if (mouseReact) ctn.addEventListener('mousemove', handleMouseMove);
 
         return () => {
             cancelAnimationFrame(rafRef.current);
+            intersectionObserver.disconnect();
             resizeObserver.disconnect();
             if (mouseReact) ctn.removeEventListener('mousemove', handleMouseMove);
             if (gl.canvas.parentElement === ctn) ctn.removeChild(gl.canvas);
@@ -396,5 +404,5 @@ export default function FaultyTerminal({
         handleMouseMove
     ]);
 
-    return <div ref={containerRef} className={`faulty-terminal-container ${className}`} style={style} {...rest} />;
+    return <div ref={containerRef} className={`faulty-terminal-container ${className}`} style={style} />;
 }
