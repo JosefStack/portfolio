@@ -103,9 +103,17 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
-// Fallback to React app for any other routes
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+// Fallback to React app for any other routes (using compatible syntax)
+app.get('(.*)', (req, res) => {
+    const indexPath = path.join(__dirname, 'dist', 'index.html');
+    if (path.extname(req.path) || !indexPath) {
+        return res.status(404).json({ error: 'Not found' });
+    }
+    res.sendFile(indexPath, (err) => {
+        if (err) {
+            res.status(404).json({ message: "Portfolio API is running. If you are doing split hosting, visit your Vercel URL instead." });
+        }
+    });
 });
 
 app.listen(port, () => {
