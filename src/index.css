@@ -56,7 +56,7 @@ html {
   width: 100%;
   max-width: 1600px;
   height: 100%;
-  background-color: var(--ide-bg);
+  background-color: rgba(1, 22, 39, 0.9);
   border: 1px solid var(--ide-border);
   border-radius: 8px;
   display: flex;
@@ -163,7 +163,7 @@ html {
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
-  scrollbar-color: var(--text-secondary) var(--ide-bg);
+  background: transparent;
   will-change: transform;
 }
 

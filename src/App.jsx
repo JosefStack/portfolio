@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import GitHubStats from './components/GitHubStats';
+import FaultyTerminal from './components/FaultyTerminal';
 
 function App() {
   const [activeTab, setActiveTab] = useState('_hello');
@@ -59,6 +60,26 @@ function App() {
         </div >
       </nav >
 
+      <FaultyTerminal
+        scale={1.5}
+        gridMul={[2, 1]}
+        digitSize={1.2}
+        timeScale={0.5}
+        pause={false}
+        scanlineIntensity={0.5}
+        glitchAmount={1}
+        flickerAmount={1}
+        noiseAmp={1}
+        chromaticAberration={0}
+        dither={0}
+        curvature={0.1}
+        tint="#A7EF9E"
+        mouseReact
+        mouseStrength={0.5}
+        pageLoadAnimation
+        brightness={0.6}
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none', opacity: 0.3 }}
+      />
       <main className="ide-content-scrollable" ref={scrollContainerRef}>
         <section id="_hello" className="portfolio-section">
           <Hero />
