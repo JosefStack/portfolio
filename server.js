@@ -4,11 +4,6 @@ import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
@@ -17,9 +12,6 @@ const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
-
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'dist')));
 
 // GitHub Contributions Proxy
 app.get('/api/github-contributions/:username/:year', async (req, res) => {
@@ -103,16 +95,16 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
-// Fallback to React app for any other routes (using compatible syntax)
-app.get('(.*)', (req, res) => {
-    const indexPath = path.join(__dirname, 'dist', 'index.html');
-    if (path.extname(req.path) || !indexPath) {
-        return res.status(404).json({ error: 'Not found' });
-    }
-    res.sendFile(indexPath, (err) => {
-        if (err) {
-            res.status(404).json({ message: "Portfolio API is running. If you are doing split hosting, visit your Vercel URL instead." });
-        }
+// Root route for status check
+app.get('/', (req, res) => {
+    res.json({ status: "Portfolio API is running", mode: "Split Hosting" });
+});
+
+// Clean catch-all middleware (no regex required)
+app.use((req, res) => {
+    res.status(404).json({
+        message: "Endpoint not found",
+        hint: "Are you looking for the frontend? Visit your Vercel URL instead."
     });
 });
 
