@@ -8,6 +8,7 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import GitHubStats from './components/GitHubStats';
 import FaultyTerminal from './components/FaultyTerminal';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [activeTab, setActiveTab] = useState('_hello');
@@ -132,6 +133,7 @@ function App() {
           </a>
         </div>
       </footer>
+      <Analytics />
     </div >
   );
 }
