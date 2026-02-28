@@ -78,7 +78,7 @@ function App() {
         mouseStrength={0.5}
         pageLoadAnimation
         brightness={0.6}
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none', opacity: 0.3 }}
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none', opacity: 0.15 }}
       />
       <main className="ide-content-scrollable" ref={scrollContainerRef}>
         <section id="_hello" className="portfolio-section">
