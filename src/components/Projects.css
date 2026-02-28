@@ -130,7 +130,8 @@
 }
 
 .btn-secondary.outline:hover {
-    color: var(--text-primary);
+    background-color: var(--text-primary);
+    color: var(--bg-dark);
     border-color: var(--text-primary);
 }
 
