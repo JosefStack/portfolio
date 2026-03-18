@@ -19,14 +19,14 @@ const projectsData = [
         github: 'https://github.com/JosefStack/anibox',
         imageSrc: 'https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/03/10-weirdest-details-about-luffy-in-one-piece.jpg?w=1200&h=900&fit=crop'
     },
-    {
-        title: 'Crypto',
-        description: 'Another project I built to learn how to integrate third-party APIs and fetch/handle complex JSON data streams.',
-        tech: ['Node.js', 'PostgreSQL', 'REST API'],
-        link: 'https://crypto-cwsl.onrender.com/',
-        github: '#',
-        imageSrc: 'https://cdn.prod.website-files.com/678fb0f1c3f23bcf01f8cff8/67af58c6a39dade48848808b_67a68d6a29be757dfc907003_67a22fdb3625a5ce9f7c16e5_Cup_and_Handle.png'
-    }
+    // {
+    //     title: 'Crypto',
+    //     description: 'Another project I built to learn how to integrate third-party APIs and fetch/handle complex JSON data streams.',
+    //     tech: ['Node.js', 'PostgreSQL', 'REST API'],
+    //     link: 'https://crypto-cwsl.onrender.com/',
+    //     github: '#',
+    //     imageSrc: 'https://cdn.prod.website-files.com/678fb0f1c3f23bcf01f8cff8/67af58c6a39dade48848808b_67a68d6a29be757dfc907003_67a22fdb3625a5ce9f7c16e5_Cup_and_Handle.png'
+    // }
 ];
 
 const Projects = () => {
