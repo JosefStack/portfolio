@@ -2,25 +2,26 @@ import React, { useEffect, useState } from 'react';
 import './About.css';
 
 const About = () => {
-    const codeString = `
-/**
- * About me
- * 
- * Hello! I'm Joseph Johnson, a Computer Science student 
- * at Riga Technical University in Latvia and an aspiring 
- * web developer.
- * 
- * I’ve been working with HTML, CSS, JavaScript, React, 
- * Node.js, Express, PostgreSQL, and authentication systems, 
- * always curious about how everything works behind the scenes.
- * 
- * Lately, I’ve developed a strong interest in Artificial 
- * Intelligence and I’m excited to dive deeper into how 
- * intelligent systems learn, think, and evolve.
- * 
- * I love building, learning, and turning curiosity into 
- * real-world projects.
- */
+    const codeString = `@developer Joseph Johnson
+@location Riga, Latvia
+@since 2024
+
+Computer Science student at Riga Technical University.
+I love building stuff and learning new things.
+
+CURRENT STACK:
+• Frontend: React, TailwindCSS, Zustand
+• Backend: Node.js, Express, Socket.io
+• Database: MongoDB, PostgreSQL, Supabase
+• Tools: Git,GitHub, Postman, Render, Vercel
+
+CURRENTLY EXPLORING:
+Artificial Intelligence - fascinated by how 
+systems learn, think, and evolve.
+
+Always building, always learning.
+
+
 `;
 
     return (
