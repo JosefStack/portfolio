@@ -4,6 +4,14 @@ import './Projects.css';
 
 const projectsData = [
     {
+        title: 'Nod - Real time chat', 
+        description: 'Real-time chat with JWT auth, WebSocket messaging, optimistic updates, online presence, image sharing, and MongoDB persistence.',
+        tech: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Zustand', 'TailwindCSS', 'JWT', 'Cloudinary'],
+        link: 'https://nod-chat.onrender.com',
+        github: 'https://github.com/JosefStack/nod-chat',
+        imageSrc: 'https://www.shutterstock.com/image-vector/happy-kids-texting-each-other-600nw-2188380125.jpg' // <-- Use your screenshot URL here
+    },
+    {
         title: 'Anibox',
         description: 'A platform that demonstrates I can implement auth systems, utilize APIs, and manage data efficiently.',
         tech: ['Node.js', 'PostgreSQL', 'REST API'],
