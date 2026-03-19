@@ -9,16 +9,16 @@ const projectsData = [
         tech: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Zustand', 'TailwindCSS', 'JWT', 'Cloudinary'],
         link: 'https://nod-chat.onrender.com',
         github: 'https://github.com/JosefStack/nod-chat',
-        imageSrc: 'https://www.shutterstock.com/image-vector/happy-kids-texting-each-other-600nw-2188380125.jpg' // <-- Use your screenshot URL here
+        imageSrc: 'https://www.shutterstock.com/image-vector/happy-kids-texting-each-other-600nw-2188380125.jpg' 
     },
     {
-        title: 'Anibox',
-        description: 'A platform that demonstrates I can implement auth systems, utilize APIs, and manage data efficiently.',
-        tech: ['Node.js', 'PostgreSQL', 'REST API'],
-        link: 'https://anibox.onrender.com/',
-        github: 'https://github.com/JosefStack/anibox',
-        imageSrc: 'https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/03/10-weirdest-details-about-luffy-in-one-piece.jpg?w=1200&h=900&fit=crop'
-    },
+    title: 'Studify',
+    description: 'Student productivity platform with Supabase auth, CRUD operations, PostgreSQL database, and responsive React UI.',
+    tech: ['React', 'Node.js', 'PostgreSQL', 'Supabase', 'Express'],
+    link: 'https://studify-josefstack.vercel.app/',
+    github: 'https://github.com/JosefStack/studify',
+    imageSrc: 'https://img.freepik.com/free-vector/hand-drawn-flat-case-study-illustration_52683-70848.jpg?semt=ais_hybrid&w=740&q=80' 
+},
     // {
     //     title: 'Crypto',
     //     description: 'Another project I built to learn how to integrate third-party APIs and fetch/handle complex JSON data streams.',
